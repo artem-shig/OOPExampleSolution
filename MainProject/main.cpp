@@ -22,6 +22,7 @@ int main() {
 	Plane* ptrPlane = nullptr;
 	ptrPlane = new Plane;
 
+
 	cout << "\nAfter(ptr):\n";
 
 	ptrPlane->brand = "\tBoeing";
