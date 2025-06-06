@@ -1,18 +1,24 @@
 #include "Student.h"
+#include "initializer.h"
 
 int main() {
 
-	Student st1;
-	Student st2("Alex", "Chichikov");
-	Student st3("Ivan", "Ivanov", 15);
-	Student st4("Artem", "Shigov", 15, 9, 'm', true, 9.6);
-	Student st5(st4);
+	int size;
+	cout << "Enter size of students:";
+	cin >> size;
 
-	cout << st1.toString() << endl;
-	cout << st2.toString() << endl;
-	cout << st3.toString() << endl;
-	cout << st4.toString() << endl;
-	cout << st5.toString() << endl;
+	Student* students = new Student[size];
+
+	Initialiser initializer;
+
+	initializer.init(students, size);
+
+	for (int i = 0; i < size; i++)
+	{
+		cout << students[i].toString() << endl;
+	}
+
+	delete[] students;
 
 	return 0;
 }

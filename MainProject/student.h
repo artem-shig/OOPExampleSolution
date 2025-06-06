@@ -12,7 +12,7 @@ public:
 	double mark;
 	char gender;
 	bool alive;
-	itn size;
+	int size;
 	string* subjects;
 
 	Student() : Student("no name, ", "no surname") {
