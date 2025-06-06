@@ -12,64 +12,47 @@ public:
 	double mark;
 	char gender;
 	bool alive;
+	itn size;
+	string* subjects;
 
-	Student() {
-
-		name = "no name";
-		surname = "no surname";
-		age = 0;
-		_class = 0;
-		gender = 'm';
-		alive = false;
-		mark = 0;
+	Student() : Student("no name, ", "no surname") {
+		//cout << "default-constructor" << endl;
 	}
 
-	Student(string fname, string sname) {
-
-		name = fname;
-		surname = sname;
-		age = 0;
-		_class = 0;
-		gender = 'm';
-		alive = false;
-		mark = 0;
+	Student(string name, string surname) : name(name), suname(surname),
+		age(0), _class(0), gender('m'), alive(false), mark(0),
+		size(0), subjects(nullptr) {
+		//cout << "constructor with arguments" << endl;
 	}
 
-	Student(string fname, string sname, int a) {
-
-		name = fname;
-		surname = sname;
-		age = a;
-		_class = 0;
-		gender = 'm';
-		alive = false;
-		mark = 0;
+	Student(string name, string surname, int age) : Student(name, surname, 
+		0, 'm', false, 4, 0, nullptr) {
 	}
 
-	Student(string fname, string sname, int a, int cl, char gen,
-		bool al, double mk) {
+	Student(string name, string surname, int age, int _class, char gender,
+		bool alive, double mark, int size, srting* subjects) {
 
-		name = fname;
-		surname = sname;
-		age = a;
-		_class = cl;
-		gender = gen;
-		alive = al;
-		mark = mk;
+		this->name = name;
+		this->surname = surname;
+		this->age = age;
+		this->_class = _class;
+		this->gender = gender;
+		this->alive = alive;
+		this->mark = mark;
+		this->size = size;
+		this->subjects = subjects;
 	}
 
-	Student(const Student& student) {
-		name = student.name;
-		surname = student.surname;
-		age = student.age;
-		_class = student._class;
-		gender = student.gender;
-		alive = student.alive;
-		mark = student.mark;
+	Student(const Student& student) : Student(student.name, student.surname,
+		student.age, student._class, student.gender, student.alive,
+		student.mark, student.size, student.subjects) {
 	}
 
 	~Student() {
-		cout << "destructor" << endl;
+		//cout << "destructor" << endl;
+		if (subjects != nullptr) {
+			delete[] subjects;
+		}
 	}
 
 	string toString() {
