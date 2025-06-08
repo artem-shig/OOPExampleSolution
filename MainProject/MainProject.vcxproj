@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="innitializer.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="Manager.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="student.h" />
   </ItemGroup>

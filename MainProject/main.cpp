@@ -1,5 +1,6 @@
 #include "Student.h"
 #include "innitializer.h"
+#include "Manager.h"
 
 int main() {
 
@@ -17,6 +18,16 @@ int main() {
 	{
 		cout << students[i].toString() << endl;
 	}
+
+	Manager manager;
+
+	Student bestStudent = manager.findBestStudent(students, size);
+	Student worstStudent = manager.findWorstStudent(students, size);
+	double average = manager.calculateAverageMark(students, size);
+
+	cout << "Best student: " << bestStudent.toString() << endl;
+	cout << "Worst student: " << worstStudent.toString() << endl;
+	cout << "Student's average mark is: " << average << endl;
 
 	delete[] students;
 
