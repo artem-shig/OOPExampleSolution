@@ -1,5 +1,5 @@
 #include "Student.h"
-#include "initializer.h"
+#include "innitializer.h"
 
 int main() {
 
@@ -9,7 +9,7 @@ int main() {
 
 	Student* students = new Student[size];
 
-	Initialiser initializer;
+	Initializer initializer;
 
 	initializer.init(students, size);
 
