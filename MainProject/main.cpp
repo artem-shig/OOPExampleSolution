@@ -46,7 +46,12 @@ int main() {
 
 	Dragon dragon(dragonAge);
 
-	cout << "Dragon has " << dragon.head << " heads" << endl;
-	cout << "Dragon has " << dragon.getCountDragonEyes() << " eyes" << endl;
+	cout << "Dragon has " << dragon.getHead() << " heads" << endl;
+	cout << "Dragon has " << dragon.getEye() << " eyes" << endl;
+
+	Dragon dragon1(301);
+
+	cout << "Dragon has " << dragon1.getHead() << " heads" << endl;
+	cout << "Dragon has " << dragon1.getEye() << " eyes" << endl;
 
 }

@@ -2,7 +2,7 @@
 
 // entity-class
 class Student {
-public:
+private:
 	string firstname;
 	string surname;
 	int age;
@@ -12,6 +12,8 @@ public:
 	double mark;
 	int size;
 	string* subjects;
+
+public:
 
 	// default-constructor or constructor without arguments
 	Student() : Student("no name", "no surname") {
@@ -56,6 +58,61 @@ public:
 		// cout << "destructor" << endl;
 		if (subjects != nullptr) {
 			delete[] subjects;
+		}
+	}
+
+	string getFirstname() {
+		return firstname;
+	}
+
+	string getSurname() {
+		return surname;
+	}
+
+	int getAge() {
+		return age;
+	}
+
+	int getClass() {
+		return _class;
+	}
+
+	bool getAlive() {
+		return alive;
+	}
+
+	double getMark() {
+		return mark;
+	}
+
+	void setFirstname(string firstname) {
+		this->firstname = firstname;
+	}
+
+	void setFirstname(string surname) {
+		this->surname = surname;
+	}
+
+	void setAge(int age) {
+		if (age > 0) {
+			this->age = age;
+		}
+	}
+
+	void setClass(int _class) {
+		if (_class >= 1 && _class <= 11) {
+			this->_class = _class;
+		}
+	}
+
+	void setAlive(int alive) {
+		this->alive = alive;
+
+	}
+
+	void setMark(double mark) {
+		if (mark >= 0 && mark <= 10) {
+			this->mark = mark;
 		}
 	}
 
