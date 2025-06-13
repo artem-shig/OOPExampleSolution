@@ -1,10 +1,5 @@
 ﻿#include "main.h"
 
-#pragma once
-#include "main.h"
-
-// KISS & DRY
-
 // entity-class
 class Student {
 public:
