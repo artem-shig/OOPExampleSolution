@@ -1,8 +1,8 @@
-//#include "student.h"
-////functional class
-//class Initializer {
-//
-//public:
-//
-//	void init(Student* students, int size);
-//};
+#pragma once
+#include "Group.h"
+
+class Initializer {
+public:
+
+	void init(Group group);
+};
