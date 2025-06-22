@@ -23,13 +23,10 @@ void Queue::enqueue(int number){
 
 int Queue::dequeue(){
 
-}
-
-int Queue::head(){
 	if (!isEmpty()) {
 		int number = numbers[0];
 
-		int* temp = new int[size];
+		int* temp = new int[size - 1];
 
 		for (int i = 1; i < size; i++)
 		{
@@ -37,10 +34,15 @@ int Queue::head(){
 
 		}
 		delete[] numbers;
+		numbers = temp;
+		size--;
 		return number;
 	}
-
 	return 0;
+}
+
+int Queue::head(){
+	return numbers[0];
 }
 
 bool Queue::isEmpty(){
@@ -50,6 +52,7 @@ bool Queue::isEmpty(){
 void Queue::clear(){
 	if (!isEmpty()) {
 		delete[] numbers;
+		size = 0;
 	}
 }
 
@@ -60,9 +63,13 @@ int Queue::getSize(){
 string Queue::toString(){
 	string s = "";
 
+	if (isEmpty()) {
+		return "Queue is empty.";
+	}
+
 	for (int i = 0; i < size; i++)
 	{
-		s += to_string(numbers[i]);
+		s += to_string(numbers[i]) + " ";
 	}
 
 	return s;
