@@ -1,26 +1,22 @@
-#include "student.h"
+#include "Student.h"
 
-class Group {
-
+class Group
+{
 private:
-
 	Student* students;
 	int size;
-
 public:
-
-	Group();
+	Group() : students(nullptr), size(0) { }
 	Group(Student* students, int size);
-
 	~Group();
 
 	bool isEmpty();
 	int getSize();
 	void add(Student student);
-	void add(Student student, int index);
+	void add(int index, Student student);
 	void remove();
-	void remove(Student student);
 	void remove(int index);
+	void remove(Student student);
 	void clear();
 	Student get(int index);
 	void set(int index, Student student);
@@ -28,4 +24,3 @@ public:
 	string toString();
 
 };
-

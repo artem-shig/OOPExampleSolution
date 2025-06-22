@@ -1,7 +1,6 @@
 #include "Group.h"
 
 Group::Group(Student* students, int size) {
-
 	if (students == nullptr || size <= 0) {
 		students = nullptr;
 		size = 0;
@@ -18,7 +17,7 @@ Group::Group(Student* students, int size) {
 }
 
 Group::~Group() {
-	clear;
+	clear();
 }
 
 bool Group::isEmpty() {
@@ -30,11 +29,11 @@ int Group::getSize() {
 }
 
 void Group::add(Student student) {
-	add(student, size - 1);
+	add(size - 1, student);
 }
 
-void Group::add(Student student, int index) {
-
+//!!!
+void Group::add(int index, Student student) {
 	if (isEmpty()) {
 		size = 1;
 		students = new Student[size];
@@ -44,7 +43,7 @@ void Group::add(Student student, int index) {
 		size++;
 		Student* temp = new Student[size];
 
-		for (int i = 0, j = 0; i < size; i++)
+		for (int i = 0, j = 0; j < size; j++)
 		{
 			if (i != index) {
 				temp[j] = students[i];
@@ -58,10 +57,29 @@ void Group::add(Student student, int index) {
 		delete[] students;
 		students = temp;
 	}
+
 }
 
 void Group::remove() {
 	remove(size - 1);
+}
+
+void Group::remove(int index) {
+	if (!isEmpty() && index >= 0 && index < size) {
+		Student* temp = new Student[size - 1];
+
+		for (int i = 0, j = 0; i < size; i++)
+		{
+			if (i != index) {
+				temp[j] = students[i];
+				j++;
+			}
+		}
+
+		size--;
+		delete[] students;
+		students = temp;
+	}
 }
 
 void Group::remove(Student student) {
@@ -70,23 +88,9 @@ void Group::remove(Student student) {
 
 		for (int i = 0, j = 0; i < size; i++)
 		{
-			if (students[i].getFirstName() == student.getFirstName()
-				&& students[i].) {
-				temp[j] = students[i];
-				j++;
-			}
-		}
-	}
-
-}
-
-void Group::remove(int index) {
-	if (!isEmpty()) {
-		Student* temp = new Student[size - 1];
-
-		for (int i = 0, j = 0; i < size; i++)
-		{
-			if (i != index) {
+			if (!(students[i].getFirstName() == student.getFirstName()
+				&& students[i].getSurname() == student.getSurname()
+				&& students[i].getAge() == student.getAge())) {
 				temp[j] = students[i];
 				j++;
 			}
@@ -105,7 +109,11 @@ void Group::clear() {
 }
 
 Student Group::get(int index) {
-	return index;
+	if (!isEmpty() && index >= 0 && index < size) {
+		return students[index];
+	}
+
+	return Student();
 }
 
 void Group::set(int index, Student student) {
@@ -124,6 +132,8 @@ string Group::toString() {
 		}
 	}
 	else {
-		s = "Group is empty";
+		s = "Group is empty.";
 	}
+
+	return s;
 }
