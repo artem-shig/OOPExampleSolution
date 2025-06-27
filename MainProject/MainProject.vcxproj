@@ -129,19 +129,23 @@
   <ItemGroup>
     <ClCompile Include="Dragon.cpp" />
     <ClCompile Include="Group.cpp" />
+    <ClCompile Include="Human.cpp" />
     <ClCompile Include="Initializer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Student.cpp" />
+    <ClCompile Include="Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dragon.h" />
     <ClInclude Include="Group.h" />
+    <ClInclude Include="Human.h" />
     <ClInclude Include="innitializer.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="student.h" />
+    <ClInclude Include="Worker.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -9,7 +9,7 @@ Student::Student(string firstname, string surname, int age, int _class,
 	this->age = age;
 	this->_class = _class;
 	this->gender = gender;
-	this->alive = alive;
+	this->setAlive(alive);
 	this->mark = mark;
 	this->size = size;
 	this->subjects = subjects;
@@ -19,32 +19,6 @@ Student::~Student() {
 
 	if (subjects != nullptr) {
 		delete[] subjects;
-	}
-}
-
-string Student::getFirstName() {
-	return firstname;
-}
-
-void Student::setFirstName(string firstname) {
-	this->firstname = firstname;
-}
-
-string Student::getSurname() {
-	return surname;
-}
-
-void Student::setSurname(string surname) {
-	this->surname = surname;
-}
-
-int Student::getAge() {
-	return age;
-}
-
-void Student::setAge(int age) {
-	if (age > 0) {
-		this->age = age;
 	}
 }
 
@@ -58,14 +32,6 @@ void Student::setClass(int _class) {
 	}
 }
 
-bool Student::isAlive() {
-	return alive;
-}
-
-void Student::setAlive(bool alive) {
-	this->alive = alive;
-}
-
 double Student::getMark() {
 	return mark;
 }
@@ -76,25 +42,14 @@ void Student::setMark(int mark) {
 	}
 }
 
-char Student::getGender() {
-	return gender;
-}
-
-void Student::setGender(char gender) {
-	if (gender == 'm' || gender == 'f') {
-		this->gender = gender;
-	}
-}
-
-
 string Student::toString() {
-	string s = firstname;
-	s += " " + surname + ".";
+	string s = getFirstname();
+	s += " " + getSurname() + ".";
 	s += ", age = " + to_string(age);
 	s += ", class = " + to_string(_class);
 	s += ", gender = " + to_string(gender);
 	s += ", is alive - ";
-	s += (alive ? "yes" : "no");
+	s += (isAlive() ? "yes" : "no");
 	s += ", average mark = " + to_string(mark);
 	return s;
 }
